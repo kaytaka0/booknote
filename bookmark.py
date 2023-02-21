@@ -1,7 +1,10 @@
 import os
 import json
+from logging import getLogger
 
 from config import TARGET_FOLDER_NAME
+
+logger = getLogger(__name__)
 
 def get_chrome_bookmark():
     bm_path = os.path.join(os.environ['HOME'], '.config/google-chrome/Default/Bookmarks')
@@ -20,10 +23,8 @@ def get_chrome_bookmark():
         raise Exception(f'{TARGET_FOLDER_NAME} is not a bookmark folder')
     
     target_folder = target_folder[0]
-    # print(target_folder)
-    for bm in target_folder['children']:
-        print(bm['name'])
-
+    return [{'name': bm['name'], 'url': bm['url']} for bm in target_folder['children']]
         
 
-get_chrome_bookmark()
+if __name__ == '__main__':
+    logger.info(get_chrome_bookmark())
