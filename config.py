@@ -1,0 +1,1 @@
+TARGET_FOLDER_NAME = 'ReadingList'
