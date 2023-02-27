@@ -2,7 +2,7 @@ import os
 import json
 from logging import getLogger
 
-from config import TARGET_FOLDER_NAME
+from booknote.config import TARGET_FOLDER_NAME
 
 logger = getLogger(__name__)
 
